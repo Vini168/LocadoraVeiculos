@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoria: {{ categoria.capitalize() }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="logo">LocadoraVeículos</div>
+            <nav class="nav">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="#">Seminovos</a>
+                <a href="#">Assinatura</a>
+            </nav>
+        </div>
+        <div class="container" style="padding:18px 0 6px">
+            <h1 style="margin:8px 0">Carros — {{ categoria.capitalize() }}</h1>
+        </div>
+    </header>
+    <main class="container">
+        <div class="lista-veiculos">
+            {% for veiculo in veiculos %}
+                {% set is_high = veiculo.valor >= 150 %}
+                <div class="veiculo-card">
+                    <img class="veiculo-thumb" src="{{ url_for('static', filename='img/' + veiculo.foto) }}" alt="{{ veiculo.nome }}">
+                    <div class="veiculo-body">
+                        <div class="veiculo-title">
+                            <h3>{{ veiculo.nome }}</h3>
+                            <div class="price-tag">R$ {{ "%.2f"|format(veiculo.valor) }}</div>
+                        </div>
+
+                        <div style="margin-top:8px">
+                            {% if is_high %}
+                                <span class="badge badge-high-margin">Alta Margem</span>
+                            {% endif %}
+                        </div>
+
+                        <ul class="veiculo-features">
+                            {% for opcional in veiculo.opcionais %}
+                                <li>{{ opcional }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        <div class="veiculo-actions">
+                            <a class="btn-alugar" href="{{ url_for('checkout', veiculo_id=veiculo.id) }}">Alugar</a>
+                            <a class="btn-secondary" href="#">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">© {{ 2025 }} LocadoraVeículos — Atendimento: contato@locadora.com</div>
+    </footer>
+    
+    <!-- AI Chat Widget -->
+    <div id="catctx" data-categoria="{{ categoria }}" style="display:none"></div>
+    <button class="ai-chat-launcher" onclick="toggleAIChat()">IA</button>
+    <div id="aiChat" class="ai-chat-box">
+        <div class="ai-chat-header">
+            <span>Assistente Locadora (IA)</span>
+            <button onclick="toggleAIChat()" style="background:transparent;color:#fff;border:none;font-weight:800;cursor:pointer">×</button>
+        </div>
+        <div class="ai-chat-messages" id="aiMessages">
+            <div class="ai-msg bot">Olá! Posso ajudar com preços, proteção, documentos e recomendações de carros.</div>
+        </div>
+        <div class="ai-chat-input">
+            <input id="aiInput" type="text" placeholder="Digite sua pergunta..." onkeypress="if(event.key==='Enter'){sendAI()}" />
+            <button onclick="sendAI()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        var currentCategory = (function(){
+            var el = document.getElementById('catctx');
+            return el ? el.getAttribute('data-categoria') : null;
+        })();
+        function toggleAIChat(){
+            var el = document.getElementById('aiChat');
+            el.classList.toggle('open');
+        }
+        function appendMsg(text, cls){
+            var box = document.getElementById('aiMessages');
+            var d = document.createElement('div');
+            d.className = 'ai-msg ' + cls;
+            d.textContent = text;
+            box.appendChild(d);
+            box.scrollTop = box.scrollHeight;
+        }
+        function sendAI(){
+            var input = document.getElementById('aiInput');
+            var q = (input.value||'').trim();
+            if(!q) return;
+            appendMsg(q, 'user');
+            input.value='';
+            // Passar contexto da categoria atual
+            fetch('/ai/ask', {
+                method:'POST', headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({question:q, context:{categoria: currentCategory }})
+            }).then(r=>r.json()).then(function(res){
+                if(res && res.answer){ appendMsg(res.answer, 'bot'); }
+                if(res && res.recommendations){
+                    var tips = res.recommendations.map(function(v){return v.nome + ' (R$ '+(v.valor?.toFixed? v.valor.toFixed(2): v.valor)+')';}).join(', ');
+                    if(tips){ appendMsg('Sugestões: '+ tips, 'bot'); }
+                }
+            }).catch(function(){ appendMsg('Desculpe, ocorreu um erro. Tente novamente.', 'bot'); });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T21:43:19.447351Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T21:43:20.082407Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T21:43:20.216972Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T21:43:20.350172Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T21:43:20.501401Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T21:43:20.663539Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:00:03.750707Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:00:04.268251Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:00:04.415444Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:00:04.703249Z"}
+{"event_type": "click", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:00:05.201274Z"}
+{"event_type": "convert", "veiculo_id": 3, "variant": "A", "reservation_id": 1, "price": 150.0, "margin": 30.0, "timestamp": "2025-11-05T22:00:05.233900Z"}
+{"event_type": "view", "veiculo_id": 1, "variant": "A", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:00:08.543638Z"}
+{"event_type": "view", "veiculo_id": 1, "variant": "A", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:01:48.914654Z"}
+{"event_type": "click", "veiculo_id": 1, "variant": "A", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:01:51.714167Z"}
+{"event_type": "convert", "veiculo_id": 1, "variant": "A", "reservation_id": 2, "price": 80.0, "margin": 16.0, "timestamp": "2025-11-05T22:01:51.722469Z"}
+{"event_type": "view", "veiculo_id": 4, "variant": "A", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:01:54.225620Z"}
+{"event_type": "view", "veiculo_id": 5, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:02:36.160403Z"}
+{"event_type": "view", "veiculo_id": 5, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:02:43.436229Z"}
+{"event_type": "click", "veiculo_id": 5, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:02:44.681288Z"}
+{"event_type": "convert", "veiculo_id": 5, "variant": "A", "reservation_id": 3, "price": 350.0, "margin": 70.0, "timestamp": "2025-11-05T22:02:44.690267Z"}
+{"event_type": "view", "veiculo_id": 4, "variant": "A", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:05:42.437192Z"}
+{"event_type": "view", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:09:24.906794Z"}
+{"event_type": "click", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:09:25.283404Z"}
+{"event_type": "convert", "veiculo_id": 1, "variant": "B", "reservation_id": 4, "price": 80.0, "margin": 16.0, "timestamp": "2025-11-05T22:09:25.629697Z"}
+{"event_type": "view", "veiculo_id": 6, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:14:07.688243Z"}
+{"event_type": "click", "veiculo_id": 6, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:14:17.582898Z"}
+{"event_type": "convert", "veiculo_id": 6, "variant": "B", "reservation_id": 5, "price": 340.0, "margin": 68.0, "timestamp": "2025-11-05T22:14:17.899414Z"}
+{"event_type": "click", "veiculo_id": 6, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:14:18.243342Z"}
+{"event_type": "convert", "veiculo_id": 6, "variant": "B", "reservation_id": 6, "price": 340.0, "margin": 68.0, "timestamp": "2025-11-05T22:14:18.506007Z"}
+{"event_type": "view", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:14:23.116701Z"}
+{"event_type": "click", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:14:24.699646Z"}
+{"event_type": "convert", "veiculo_id": 1, "variant": "B", "reservation_id": 7, "price": 80.0, "margin": 16.0, "timestamp": "2025-11-05T22:14:25.042234Z"}
+{"event_type": "view", "veiculo_id": 2, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:14:28.478891Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:14:35.773549Z"}
+{"event_type": "view", "veiculo_id": 5, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:51:33.818396Z"}
+{"event_type": "click", "veiculo_id": 5, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:51:58.332842Z"}
+{"event_type": "convert", "veiculo_id": 5, "variant": "B", "reservation_id": 8, "price": 350.0, "margin": 70.0, "timestamp": "2025-11-05T22:51:58.651069Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:52:03.001297Z"}
+{"event_type": "click", "veiculo_id": 3, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:52:04.079393Z"}
+{"event_type": "convert", "veiculo_id": 3, "variant": "B", "reservation_id": 9, "price": 150.0, "margin": 30.0, "timestamp": "2025-11-05T22:52:04.397719Z"}
+{"event_type": "view", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:52:07.298481Z"}
+{"event_type": "click", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:52:11.633478Z"}
+{"event_type": "convert", "veiculo_id": 1, "variant": "B", "reservation_id": 10, "price": 80.0, "margin": 16.0, "timestamp": "2025-11-05T22:52:11.948370Z"}
+{"event_type": "view", "veiculo_id": 5, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T22:52:15.064536Z"}
+{"event_type": "view", "veiculo_id": 5, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:06:00.848535Z"}
+{"event_type": "view", "veiculo_id": 2, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:06:13.396257Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:06:30.410171Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:08:43.374507Z"}
+{"event_type": "view", "veiculo_id": 5, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:10:54.532621Z"}
+{"event_type": "click", "veiculo_id": 5, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:10:59.296443Z"}
+{"event_type": "convert", "veiculo_id": 5, "variant": "B", "reservation_id": 11, "price": 350.0, "margin": 70.0, "timestamp": "2025-11-05T23:10:59.612690Z"}
+{"event_type": "view", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:11:02.353751Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:20:07.348953Z"}
+{"event_type": "click", "veiculo_id": 3, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:20:08.926469Z"}
+{"event_type": "convert", "veiculo_id": 3, "variant": "B", "reservation_id": 12, "price": 150.0, "margin": 30.0, "timestamp": "2025-11-05T23:20:09.234581Z"}
+{"event_type": "view", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:47:41.707193Z"}
+{"event_type": "click", "veiculo_id": 1, "variant": "B", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:47:56.612601Z"}
+{"event_type": "convert", "veiculo_id": 1, "variant": "B", "reservation_id": 13, "price": 80.0, "margin": 16.0, "timestamp": "2025-11-05T23:47:56.634353Z"}
+{"event_type": "view", "veiculo_id": 5, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:48:20.346006Z"}
+{"event_type": "click", "veiculo_id": 5, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:48:36.946043Z"}
+{"event_type": "convert", "veiculo_id": 5, "variant": "B", "reservation_id": 14, "price": 350.0, "margin": 70.0, "timestamp": "2025-11-05T23:48:36.953023Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "B", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-05T23:48:42.167255Z"}
+{"event_type": "view", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:09:11.234396Z"}
+{"event_type": "click", "veiculo_id": 3, "variant": "A", "is_high_margin": true, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:09:13.010870Z"}
+{"event_type": "convert", "veiculo_id": 3, "variant": "A", "reservation_id": 15, "price": 150.0, "margin": 30.0, "timestamp": "2025-11-12T19:09:13.024556Z"}
+{"event_type": "view", "veiculo_id": 1, "variant": "A", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:09:15.680310Z"}
+{"event_type": "click", "veiculo_id": 1, "variant": "A", "is_high_margin": false, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:09:16.455466Z"}
+{"event_type": "convert", "veiculo_id": 1, "variant": "A", "reservation_id": 16, "price": 80.0, "margin": 16.0, "timestamp": "2025-11-12T19:09:16.480584Z"}
+{"event_type": "ai_ask", "payload": {"question": "sugestões para família?", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:10:09.523935Z"}
+{"event_type": "ai_ask", "payload": {"question": "qual a proteção?", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:10:59.992241Z"}
+{"event_type": "ai_ask", "payload": {"question": "documentos necessários?", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:11:50.428770Z"}
+{"event_type": "ai_ask", "payload": {"question": "qual proteção?", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:12:01.742861Z"}
+{"event_type": "ai_ask", "payload": {"question": "recomendações", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:12:22.593683Z"}
+{"event_type": "ai_ask", "payload": {"question": "quais documentos eu preciso?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:12:47.124979Z"}
+{"event_type": "ai_ask", "payload": {"question": "sugestões para família?", "context": {"categoria": "esportivos", "finalidade": "familia", "orcamento": "160"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:17:06.436152Z"}
+{"event_type": "ai_ask", "payload": {"question": "carro econômico para cidade com até 120 reais", "context": {"categoria": "esportivos", "finalidade": "experiencia", "orcamento": "160"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:17:33.407361Z"}
+{"event_type": "ai_ask", "payload": {"question": "carro econômico para cidade com até 120 reais", "context": {"categoria": "esportivos", "finalidade": "experiencia", "orcamento": "160"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:17:39.098215Z"}
+{"event_type": "ai_ask", "payload": {"question": "proteção?", "context": {"categoria": "esportivos", "finalidade": "experiencia", "orcamento": "160"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:17:47.738588Z"}
+{"event_type": "ai_ask", "payload": {"question": "documetos?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:19:20.767788Z"}
+{"event_type": "ai_ask", "payload": {"question": "quais documentos?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:19:28.199193Z"}
+{"event_type": "ai_ask", "payload": {"question": "qual proteção?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:19:32.518318Z"}
+{"event_type": "ai_ask", "payload": {"question": "carro por 120?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:19:41.541332Z"}
+{"event_type": "ai_ask", "payload": {"question": "combustivel?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:26:28.811673Z"}
+{"event_type": "ai_ask", "payload": {"question": "combustível?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:26:35.050299Z"}
+{"event_type": "ai_ask", "payload": {"question": "qual o prazo de entrega?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:27:03.694673Z"}
+{"event_type": "ai_ask", "payload": {"question": "qual a quilometragem?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:28:11.734008Z"}
+{"event_type": "ai_ask", "payload": {"question": "quando é a devolução?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:28:27.080949Z"}
+{"event_type": "ai_ask", "payload": {"question": "Vou viajar com família, alguma sugestão?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:30:41.813634Z"}
+{"event_type": "ai_ask", "payload": {"question": "Quilometragem é livre?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:30:55.384763Z"}
+{"event_type": "ai_ask", "payload": {"question": "qual a proteção que vocês tem?", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:35:21.040965Z"}
+{"event_type": "ai_ask", "payload": {"question": "documentos necessários?", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:35:50.854765Z"}
+{"event_type": "ai_ask", "payload": {"question": "qual o limite de quilometragem?", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:36:24.516230Z"}
+{"event_type": "ai_ask", "payload": {"question": "política do combustível", "context": {}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:36:56.535534Z"}
+{"event_type": "ai_ask", "payload": {"question": "quilometragem?", "context": {"categoria": "esportivos"}}, "remote_addr": "127.0.0.1", "timestamp": "2025-11-12T19:40:04.985028Z"}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div style="display:flex;align-items:center;gap:12px">
+                <a href="#" onclick="window.history.back()" class="back-link" style="position:static;transform:none;color:#fff;margin-right:6px">← Voltar</a>
+                <div class="logo">LocadoraVeículos</div>
+            </div>
+            <nav class="nav">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="#">Seminovos</a>
+                <a href="#">Assinatura</a>
+            </nav>
+        </div>
+        <div class="container" style="padding:18px 0 6px">
+            <h1>Checkout do Veículo</h1>
+        </div>
+    </header>
+    <main>
+        <div class="checkout-box">
+            <div>
+                <h2 style="margin-top:0">{{ veiculo.nome }}</h2>
+                {% if variant == 'B' and is_high_margin %}
+                    <div style="margin:8px 0"><span class="badge badge-high-margin">Recomendado — Alta Margem</span></div>
+                    <p class="value-prop">Destaque especial: maior valor agregado sem comprometer a qualidade.</p>
+                {% endif %}
+
+                <p style="margin:12px 0"><strong>Valor diário:</strong> <span class="price">R$ {{ "%.2f"|format(veiculo.valor) }}</span></p>
+
+                <h4>Opcionais</h4>
+                <ul class="veiculo-features">
+                    {% for opcional in veiculo.opcionais %}
+                        <li>{{ opcional }}</li>
+                    {% endfor %}
+                </ul>
+
+                <div style="margin-top:14px">
+                    {% if variant == 'B' and is_high_margin %}
+                        <button class="btn-confirmar btn-highlight">Reservar agora — Vagas limitadas</button>
+                    {% else %}
+                        <button class="btn-confirmar">Confirmar Aluguel</button>
+                    {% endif %}
+                </div>
+            </div>
+
+            <aside>
+                <img src="{{ url_for('static', filename='img/' + veiculo.foto) }}" alt="Foto do {{ veiculo.nome }}" class="checkout-foto">
+                <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+                    <a href="{{ url_for('index') }}" class="btn-secondary">Continuar navegando</a>
+                    <div class="price-tag">R$ {{ "%.2f"|format(veiculo.valor) }}</div>
+                </div>
+            </aside>
+        </div>
+
+        <script>
+            (function(){
+                // variáveis do template
+                var veiculoId = {{ veiculo.id | tojson }};
+                var variant = {{ variant | tojson }};
+                var isHigh = {{ is_high_margin | tojson }};
+                function sendEvent(evt) {
+                    fetch('/event', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(evt)
+                    }).catch(function(e){
+                        // swallow errors in debug instrumentation
+                        console.error('event send error', e);
+                    });
+                }
+
+                // enviar view ao carregar
+                document.addEventListener('DOMContentLoaded', function(){
+                    sendEvent({event_type: 'view', veiculo_id: veiculoId, variant: variant, is_high_margin: isHigh});
+                });
+
+                // attach click handler to CTA
+                var btns = document.querySelectorAll('.btn-confirmar');
+                btns.forEach(function(btn){
+                    btn.addEventListener('click', function(e){
+                        e.preventDefault();
+                        // registrar click
+                        sendEvent({event_type: 'click', veiculo_id: veiculoId, variant: variant, is_high_margin: isHigh});
+                        // simular reserva via endpoint /reserve
+                        fetch('/reserve', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({veiculo_id: veiculoId, variant: variant})
+                        }).then(function(resp){
+                            return resp.json();
+                        }).then(function(body){
+                            // após reservar, redirecionar para página inicial ou mostrar mensagem
+                            if (body && body.status === 'reserved') {
+                                window.location.href = '/';
+                            } else {
+                                window.alert('Reserva processada (debug).');
+                            }
+                        }).catch(function(){
+                            window.location.href = '/';
+                        });
+                    });
+                });
+            })();
+        </script>
+    </main>
+    
+    <!-- AI Chat Widget -->
+    <div id="checkoutctx" data-veiculo-id="{{ veiculo.id }}" style="display:none"></div>
+    <button class="ai-chat-launcher" onclick="toggleAIChat()">IA</button>
+    <div id="aiChat" class="ai-chat-box">
+        <div class="ai-chat-header">
+            <span>Assistente Locadora (IA)</span>
+            <button onclick="toggleAIChat()" style="background:transparent;color:#fff;border:none;font-weight:800;cursor:pointer">×</button>
+        </div>
+        <div class="ai-chat-messages" id="aiMessages">
+            <div class="ai-msg bot">Precisa de ajuda com este veículo? Posso explicar proteções, políticas e sugerir alternativas.</div>
+        </div>
+        <div class="ai-chat-input">
+            <input id="aiInput" type="text" placeholder="Digite sua pergunta..." onkeypress="if(event.key==='Enter'){sendAI()}" />
+            <button onclick="sendAI()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleAIChat(){
+            var el = document.getElementById('aiChat');
+            el.classList.toggle('open');
+        }
+        function appendMsg(text, cls){
+            var box = document.getElementById('aiMessages');
+            var d = document.createElement('div');
+            d.className = 'ai-msg ' + cls;
+            d.textContent = text;
+            box.appendChild(d);
+            box.scrollTop = box.scrollHeight;
+        }
+        function sendAI(){
+            var input = document.getElementById('aiInput');
+            var q = (input.value||'').trim();
+            if(!q) return;
+            appendMsg(q, 'user');
+            input.value='';
+            // Contexto mínimo: veiculo_id atual
+            var ctxEl = document.getElementById('checkoutctx');
+            var vid = ctxEl ? ctxEl.getAttribute('data-veiculo-id') : null;
+            fetch('/ai/ask', {
+                method:'POST', headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({question:q, context:{veiculo_id: vid }})
+            }).then(r=>r.json()).then(function(res){
+                if(res && res.answer){ appendMsg(res.answer, 'bot'); }
+                if(res && res.recommendations){
+                    var tips = res.recommendations.map(function(v){return v.nome + ' (R$ '+(v.valor?.toFixed? v.valor.toFixed(2): v.valor)+')';}).join(', ');
+                    if(tips){ appendMsg('Talvez você também goste: '+ tips, 'bot'); }
+                }
+            }).catch(function(){ appendMsg('Desculpe, ocorreu um erro. Tente novamente.', 'bot'); });
+        }
+    </script>
+</body>
+</html>

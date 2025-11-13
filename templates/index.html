@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locadora de Veículos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">     (function(c,l,a,r,i,t,y){         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);     })(window, document, "clarity", "script", "u57ly9nyp1"); </script>
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="logo">LocadoraVeículos</div>
+            <nav class="nav">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="#">Seminovos</a>
+                <a href="#">Assinatura</a>
+            </nav>
+        </div>
+        <div class="container hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <h1>Encontre o carro ideal para sua próxima viagem</h1>
+                    <p>Veículos atualizados, atendimento ágil e ofertas especiais para reservas corporativas.</p>
+                    <a href="#categorias" class="btn-cta">Ver categorias</a>
+                </div>
+                <div class="hero-visual">
+                    <!-- espaço para imagem/visual -->
+                    <img src="{{ url_for('static', filename='img/mobi.jpg') }}" alt="car" style="width:280px;border-radius:12px;box-shadow:0 8px 24px rgba(13,110,253,0.12)">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 id="categorias">Categorias de Veículos</h2>
+        <div class="categorias">
+            {% for categoria in categorias %}
+                <a href="{{ url_for('ver_categoria', categoria_nome=categoria) }}" class="categoria-card">
+                    {{ categoria.capitalize() }}
+                </a>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">© {{ 2025 }} LocadoraVeículos — Atendimento: contato@locadora.com</div>
+    </footer>
+    
+    <!-- AI Chat Widget -->
+    <button class="ai-chat-launcher" onclick="toggleAIChat()">IA</button>
+    <div id="aiChat" class="ai-chat-box">
+        <div class="ai-chat-header">
+            <span>Assistente Locadora (IA)</span>
+            <button onclick="toggleAIChat()" style="background:transparent;color:#fff;border:none;font-weight:800;cursor:pointer">×</button>
+        </div>
+        <div class="ai-chat-messages" id="aiMessages">
+            <div class="ai-msg bot">Olá! Posso ajudar com preços, proteção, documentos e recomendações de carros.</div>
+        </div>
+        <div class="ai-chat-input">
+            <input id="aiInput" type="text" placeholder="Digite sua pergunta..." onkeypress="if(event.key==='Enter'){sendAI()}" />
+            <button onclick="sendAI()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleAIChat(){
+            var el = document.getElementById('aiChat');
+            el.classList.toggle('open');
+        }
+        function appendMsg(text, cls){
+            var box = document.getElementById('aiMessages');
+            var d = document.createElement('div');
+            d.className = 'ai-msg ' + cls;
+            d.textContent = text;
+            box.appendChild(d);
+            box.scrollTop = box.scrollHeight;
+        }
+        function sendAI(){
+            var input = document.getElementById('aiInput');
+            var q = (input.value||'').trim();
+            if(!q) return;
+            appendMsg(q, 'user');
+            input.value='';
+            fetch('/ai/ask', {
+                method:'POST', headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({question:q, context:{}})
+            }).then(r=>r.json()).then(function(res){
+                if(res && res.answer){ appendMsg(res.answer, 'bot'); }
+                if(res && res.recommendations){
+                    var tips = res.recommendations.map(function(v){return v.nome + ' (R$ '+(v.valor?.toFixed? v.valor.toFixed(2): v.valor)+')';}).join(', ');
+                    if(tips){ appendMsg('Sugestões: '+ tips, 'bot'); }
+                }
+            }).catch(function(){ appendMsg('Desculpe, ocorreu um erro. Tente novamente.', 'bot'); });
+        }
+    </script>
+</body>
+</html>
